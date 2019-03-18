@@ -39,7 +39,6 @@ var firstAndPike = {
 
 firstAndPike.hourlyCookies();
 var cookieArr = firstAndPike.dailyCookies();
-
 console.log(cookieArr);
 
 // 1: Get the parent element to add content
@@ -80,6 +79,12 @@ for(var i = 0; i < 15; i ++){
   li.textContent = time + cookieArr[i] + ' cookies';
   ul.appendChild(li);
 }
+var sum = 0;
+for(var i = 0; i < 15; i++){ 
+  sum += cookieArr[i];
+}
+li.textContent = 'Total: ' + sum;
+ul.appendChild(li);
 
 var seatacAirport = {
   name: 'Seatac Airport',
@@ -137,6 +142,7 @@ var ul = document.createElement('ul');
 ul.setAttribute('class', 'unorder');
 article.appendChild(ul);
 
+
 // adding to list
 for(var i = 0; i < 15; i ++){
   var li = document.createElement('li');
@@ -151,6 +157,12 @@ for(var i = 0; i < 15; i ++){
   li.textContent = time + cookieArr[i] + ' cookies';
   ul.appendChild(li);
 }
+sum = 0;
+for(var i = 0; i < 15; i++){ 
+  sum += cookieArr[i];
+}
+li.textContent = 'Total: ' + sum;
+ul.appendChild(li);
 
 var seattleCenter = {
   name: 'Seattle Center',
@@ -222,6 +234,12 @@ for(var i = 0; i < 15; i ++){
   li.textContent = time + cookieArr[i] + ' cookies';
   ul.appendChild(li);
 }
+sum = 0;
+for(var i = 0; i < 15; i++){ 
+  sum += cookieArr[i];
+}
+li.textContent = 'Total: ' + sum;
+ul.appendChild(li);
 
 var capitolHill = {
   name: 'Capitol Hill',
@@ -293,6 +311,12 @@ for(var i = 0; i < 15; i ++){
   li.textContent = time + cookieArr[i] + ' cookies';
   ul.appendChild(li);
 }
+sum = 0;
+for(var i = 0; i < 15; i++){ 
+  sum += cookieArr[i];
+}
+li.textContent = 'Total: ' + sum;
+ul.appendChild(li);
 
 var alki = {
   name: 'Alki',
@@ -364,3 +388,9 @@ for(var i = 0; i < 15; i ++){
   li.textContent = time + cookieArr[i] + ' cookies';
   ul.appendChild(li);
 }
+sum = 0;
+for(var i = 0; i < 15; i++){ 
+  sum += cookieArr[i];
+}
+li.textContent = 'Total: ' + sum;
+ul.appendChild(li);
