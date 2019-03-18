@@ -36,10 +36,10 @@ var firstAndPike = {
 
 };
 
-// firstAndPike.hourlyCookies();
-// firstAndPike.dailyCookies();
+firstAndPike.hourlyCookies();
+var cookieArr = firstAndPike.dailyCookies();
 
-
+console.log(cookieArr);
 
 // 1: Get the parent element to add content
 
@@ -49,3 +49,33 @@ var salesListElement = document.getElementById('middle');
 var article = document.createElement('article');
 article.setAttribute('id', `${firstAndPike.name.toLowerCase()}`);
 salesListElement.appendChild(article);
+
+// 2: create element
+
+var h2 = document.createElement('h2');
+
+// 3: give element content
+h2.textContent = firstAndPike.name;
+
+// 4: append to document
+article.appendChild(h2);
+
+// creating daily output list
+var ul = document.createElement('ul');
+ul.setAttribute('class', 'unorder');
+article.appendChild(ul);
+
+// adding to list
+for(var i = 0; i < 15; i ++){
+  var li = document.createElement('li');
+  var time = '';
+  if( i < 6){
+    time = i + 6 + ' am ';
+  }else if(i === 6){
+    time = 12 + ' pm ';
+  }else{
+    time = i - 6 + ' pm ';
+  }
+  li.textContent = time + cookieArr[i];
+  ul.appendChild(li);
+}
