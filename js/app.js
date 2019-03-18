@@ -47,7 +47,8 @@ var salesListElement = document.getElementById('middle');
 // console.log(salesListElement);
 
 var article = document.createElement('article');
-article.setAttribute('id', `${firstAndPike.name.toLowerCase()}`);
+// article.setAttribute('id', `${firstAndPike.name.toLowerCase()}`);
+article.setAttribute('id', 'first');
 salesListElement.appendChild(article);
 
 // 2: create element
@@ -124,7 +125,8 @@ var salesListElement = document.getElementById('middle');
 // console.log(salesListElement);
 
 var article = document.createElement('article');
-article.setAttribute('id', `${seatacAirport.name.toLowerCase()}`);
+// article.setAttribute('id', `${seatacAirport.name.toLowerCase()}`);
+article.setAttribute('id', 'seatac');
 salesListElement.appendChild(article);
 
 // 2: create element
@@ -202,7 +204,8 @@ var salesListElement = document.getElementById('middle');
 // console.log(salesListElement);
 
 var article = document.createElement('article');
-article.setAttribute('id', `${seattleCenter.name.toLowerCase()}`);
+// article.setAttribute('id', `${seattleCenter.name.toLowerCase()}`);
+article.setAttribute('id', 'seattle');
 salesListElement.appendChild(article);
 
 // 2: create element
@@ -279,7 +282,8 @@ var salesListElement = document.getElementById('middle');
 // console.log(salesListElement);
 
 var article = document.createElement('article');
-article.setAttribute('id', `${capitolHill.name.toLowerCase()}`);
+// article.setAttribute('id', `${capitolHill.name.toLowerCase()}`);
+article.setAttribute('id', 'capitol');
 salesListElement.appendChild(article);
 
 // 2: create element
@@ -356,7 +360,8 @@ var salesListElement = document.getElementById('middle');
 // console.log(salesListElement);
 
 var article = document.createElement('article');
-article.setAttribute('id', `${alki.name.toLowerCase()}`);
+// article.setAttribute('id', `${alki.name.toLowerCase()}`);
+article.setAttribute('id', 'alki');
 salesListElement.appendChild(article);
 
 // 2: create element
