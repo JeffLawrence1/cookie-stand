@@ -1,41 +1,8 @@
 'use strict';
 
-/* <article id="first">
-<h2>First and Pike</h2>
-<ul>
-  <li>cookies per hour</li>
-  <li>cookies per hour</li>
-  <li>cookies per hour</li>
-
-</ul>
-</article> */
-
-/* <table>
-      <tr>
-        <th></th>
-        <th>6:00am</th>
-        <th>7:00am</th>
-      </tr>
-      <tr>
-        <td>First and Pike</td>
-        <td>cookies</td>
-        <td>5fdsfdf0</td>
-      </tr>
-      <tr>
-        <td>Seatac</td>
-        <td>Jsdfsackson</td>
-        <td>9sdf4</td>
-      </tr>
-      <tr>
-        <td>Seattle</td>
-        <td>Dsdfsoe</td>
-        <td>8sdf0</td>
-      </tr>
-    </table> */
 // 1: Get the parent element to add content
 var salesListElement = document.getElementById('middle');
-// var tableElement = document.getElementById('middle');
-console.log(salesListElement);
+
 
 //rendering table structure, head, body, foot
 var renderTable = function(salesListElement){
@@ -47,8 +14,6 @@ var renderTable = function(salesListElement){
   table.appendChild(tableHead);
   var tableRow = document.createElement('tr');
   tableHead.appendChild(tableRow);
-  // var tableHead2 = document.createElement('th');
-  // tableRow.appendChild(tableHead2);
 
   for(var i = 0; i < 17; i++){
     var th = document.createElement('th');
@@ -74,13 +39,15 @@ var renderTable = function(salesListElement){
   tablefoot.setAttribute('id', 'foot');
   table.appendChild(tablefoot);
 };
+
+// initializing the table
 renderTable(salesListElement);
-// var salesListElement = document.getElementById('middle');
+
+
+//grabbing the table body location
+var tableElement = document.getElementById('body');
 
 //rendering actual table with info
-var tableElement = document.getElementById('body');
-console.log(tableElement);
-
 var addStore = function(tableElement){
   var tr = document.createElement('tr');
   tableElement.appendChild(tr);
@@ -103,6 +70,19 @@ var addStore = function(tableElement){
   tr.appendChild(td);
 
 };
+
+// Get the parent element to add content
+var footElement = document.getElementById('foot');
+
+var renderFoot = function(footElement){
+  var tr = document.createElement('tr');
+  footElement.appendChild(tr);
+  var td = document.createElement('td');
+  td.textContent = 'Hourly Totals';
+  tr.appendChild(td);
+};
+
+renderFoot(footElement);
 // addStore(tableElement);
 // var renderStore = function(salesListElement){
 //   console.log(salesListElement);
