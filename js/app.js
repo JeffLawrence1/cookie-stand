@@ -3,7 +3,6 @@
 // 1: Get the parent element to add content
 var salesListElement = document.getElementById('middle');
 
-
 //rendering table structure, head, body, foot
 var renderTable = function(salesListElement){
   var table = document.createElement('table');
@@ -47,7 +46,7 @@ renderTable(salesListElement);
 //grabbing the table body location
 var tableElement = document.getElementById('body');
 
-//rendering actual table with info
+//creating and populating the table, but doenst actually render it see bottom of code for that
 var addStore = function(tableElement){
   var tr = document.createElement('tr');
   tableElement.appendChild(tr);
@@ -68,9 +67,7 @@ var addStore = function(tableElement){
   td = document.createElement('td');
   td.textContent = sum;
   tr.appendChild(td);
-
 };
-
 
 // Get the parent element to add content
 var footElement = document.getElementById('foot');
@@ -82,15 +79,6 @@ var renderFoot = function(footElement){
   td.textContent = 'Hourly Totals';
   tr.appendChild(td);
 
-  // var sum = 0;
-
-  // for(var i = 1; i < 16; i++){
-  //   for(var j = 1; j < 5; j++){
-  //     sum += document.getElementById('body').rows[i].cells[j].textContent;
-  //     console.log(sum);
-  //   }
-  // }
-  // var sum = 0;
   for(var i = 0; i < 15; i++){
     var sum = 0;
     for(var j = 0; j < storeList.length; j++){
@@ -101,58 +89,7 @@ var renderFoot = function(footElement){
     td.textContent = sum;
     tr.appendChild(td);
   }
-  // td = document.createElement('td');
-  // td.textContent = sum;
-  // tr.appendChild(td);
 };
-// var columns = document.getElementById('table').rows[0].cells.length;
-// var columns = document.getElementById('table').rows[0].cells[2];
-// console.log(columns);
-
-// renderFoot(footElement);
-// addStore(tableElement);
-// var renderStore = function(salesListElement){
-//   console.log(salesListElement);
-
-
-//   var article = document.createElement('article');
-//   article.setAttribute('id', `${this.name.toLowerCase().replace(' ', '')}`);
-//   // article.setAttribute('id', 'first');
-//   salesListElement.appendChild(article);
-//   // 2: create element
-//   var h2 = document.createElement('h2');
-//   // 3: give element content
-//   h2.textContent = this.name;
-//   // 4: append to document
-//   article.appendChild(h2);
-//   // creating daily output list
-//   var ul = document.createElement('ul');
-//   ul.setAttribute('class', 'unorder');
-//   article.appendChild(ul);
-//   // adding to list
-
-
-//   for(var i = 0; i < 15; i++){
-//     var li = document.createElement('li');
-//     var time = '';
-//     if( i < 6){
-//       time = i + 6 + 'am: ';
-//     }else if(i === 6){
-//       time = 12 + 'pm: ';
-//     }else{
-//       time = i - 6 + 'pm: ';
-//     }
-//     li.textContent = time + this.cookieArr[i] + ' cookies';
-//     ul.appendChild(li);
-//   }
-//   var sum = 0;
-//   for(var i = 0; i < 15; i++){
-//     sum += this.cookieArr[i];
-//   }
-//   li.textContent = 'Total: ' + sum;
-//   ul.appendChild(li);
-
-// };
 
 //constructor function --- make sure to use a capitol letter to start name
 var StoreConstructor = function(name, minimumCustomers, maximumCustomers, averageCookieSale){
@@ -160,7 +97,6 @@ var StoreConstructor = function(name, minimumCustomers, maximumCustomers, averag
   this.minimumCustomers = minimumCustomers;
   this.maximumCustomers = maximumCustomers;
   this. averageCookieSale = averageCookieSale;
-
 
   storeList.push(this);
 };
@@ -177,19 +113,14 @@ StoreConstructor.prototype.hourlyCookies = function(){
     daily.push(temp);
   }
   this.cookieArr = daily;
-  // console.log(this.cookieArr);
-  // return daily;
 };
 
 //array of stores
 var storeList = [];
-// console.log(storeList);
-//var cookieArr = StoreConstructor.hourlyCookies();
-// console.log(cookieArr);
 
 
-//Rendering the store uncomment below to make work again
-// StoreConstructor.prototype.renderPage = renderStore;
+//Rendering the store 
+
 StoreConstructor.prototype.renderPage = addStore;
 
 
@@ -206,25 +137,10 @@ seattleCenter.hourlyCookies();
 capitolHill.hourlyCookies();
 alki.hourlyCookies();
 
-// console.log(firstAndPike);
-// console.log(this.storeList);
-
-// for(var i = 0; i < storeList.length; i++){
-//   storeList[i].renderPage(salesListElement);
-// }
+//render populated table
 for(var i = 0; i < storeList.length; i++){
   storeList[i].renderPage(tableElement);
 }
-// var sum = 0;
-// var columns = document.getElementById('body').rows[1].cells[2];
-// var columns1 = document.getElementById('body').rows[2].cells[2];
-// console.log(parseInt(columns.textContent));
-// console.log(parseInt(columns1.textContent));
-// sum = columns + columns1;
-// console.log(sum);
-// var tbl = document.getElementsByTagName("table")[0];
-// var cls = tbl.getElementsByTagName("td");
-// console.log(cls);
 
-//render
+//render footer
 renderFoot(footElement);
