@@ -1,12 +1,11 @@
 'use strict';
 
-// 1: Get the parent element to add content
+// Get the parent element to add content
 var salesListElement = document.getElementById('middle');
 
 //rendering table structure, head, body, foot
 var renderTable = function(salesListElement){
   var table = document.createElement('table');
-  console.log(salesListElement);
   table.setAttribute('id', 'table');
   salesListElement.appendChild(table);
   var tableHead = document.createElement('thead');
@@ -42,7 +41,6 @@ var renderTable = function(salesListElement){
 // initializing the table
 renderTable(salesListElement);
 
-
 //grabbing the table body location
 var tableElement = document.getElementById('body');
 
@@ -74,6 +72,7 @@ var footElement = document.getElementById('foot');
 
 var renderFoot = function(footElement){
   var tr = document.createElement('tr');
+  tr.setAttribute('id','foot1');
   footElement.appendChild(tr);
   var td = document.createElement('td');
   td.textContent = 'Hourly Totals';
@@ -101,7 +100,7 @@ var StoreConstructor = function(name, minimumCustomers, maximumCustomers, averag
   storeList.push(this);
 };
 
-//function constructor functions
+//Store constructor function to calculate cookies per hour and push in to array
 StoreConstructor.prototype.hourlyCookies = function(){
   var spread = this.maximumCustomers - this.minimumCustomers;
 
@@ -118,29 +117,40 @@ StoreConstructor.prototype.hourlyCookies = function(){
 //array of stores
 var storeList = [];
 
-
-//Rendering the store 
-
+//Rendering the store function
 StoreConstructor.prototype.renderPage = addStore;
 
+//grabbing the form ID from the html
+var addStoreNew = document.getElementById('addStore');
 
-//creating store objects
-var firstAndPike = new StoreConstructor('First and Pike', 23, 65, 6.3);
-var seatacAirport = new StoreConstructor('Seatac Airport', 3, 24, 1.2);
-var seattleCenter = new StoreConstructor('Seattle Center', 11, 38, 3.7);
-var capitolHill = new StoreConstructor('Capitol Hill', 20, 38, 2.3);
-var alki = new StoreConstructor('Alki', 2, 16, 4.6);
+var addStoreEventHandler = function(event){
+  //prevent page from reloading after every press of submit button
+  event.preventDefault();
 
-firstAndPike.hourlyCookies();
-seatacAirport.hourlyCookies();
-seattleCenter.hourlyCookies();
-capitolHill.hourlyCookies();
-alki.hourlyCookies();
+  //don't need to repeat event everytime
+  var target = event.target;
+  //the input variables
+  var name = target.name.value;
+  var minimum = parseInt(target.minimum.value);
+  var maximum = parseInt(target.maximum.value);
+  var average = parseInt(target.average.value);
+  //reseting the form elements after each use
+  target.reset();
+  //create store
+  var newStore = new StoreConstructor(name, minimum, maximum, average);
+  //running hourlyCookies function inside each store as its created
+  newStore.hourlyCookies();
+  //render store to page
+  newStore.renderPage(tableElement);
 
-//render populated table
-for(var i = 0; i < storeList.length; i++){
-  storeList[i].renderPage(tableElement);
-}
+  //variable to grab footer element
+  var footsie = (document.getElementById('foot1'));
+  //check to see if footer already exists, if it does delete it to reset hourly totals to include new store
+  if(footsie){
+    footsie.parentNode.removeChild(footsie);
+  }
+  //render footer
+  renderFoot(footElement);
+};
+addStoreNew.addEventListener('submit', addStoreEventHandler);
 
-//render footer
-renderFoot(footElement);
