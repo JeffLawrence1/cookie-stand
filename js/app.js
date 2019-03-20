@@ -6,7 +6,6 @@ var salesListElement = document.getElementById('middle');
 //rendering table structure, head, body, foot
 var renderTable = function(salesListElement){
   var table = document.createElement('table');
-  console.log(salesListElement);
   table.setAttribute('id', 'table');
   salesListElement.appendChild(table);
   var tableHead = document.createElement('thead');
@@ -125,18 +124,36 @@ StoreConstructor.prototype.renderPage = addStore;
 
 
 //creating store objects
-var firstAndPike = new StoreConstructor('First and Pike', 23, 65, 6.3);
-var seatacAirport = new StoreConstructor('Seatac Airport', 3, 24, 1.2);
-var seattleCenter = new StoreConstructor('Seattle Center', 11, 38, 3.7);
-var capitolHill = new StoreConstructor('Capitol Hill', 20, 38, 2.3);
-var alki = new StoreConstructor('Alki', 2, 16, 4.6);
+// var firstAndPike = new StoreConstructor('First and Pike', 23, 65, 6.3);
+// var seatacAirport = new StoreConstructor('Seatac Airport', 3, 24, 1.2);
+// var seattleCenter = new StoreConstructor('Seattle Center', 11, 38, 3.7);
+// var capitolHill = new StoreConstructor('Capitol Hill', 20, 38, 2.3);
+// var alki = new StoreConstructor('Alki', 2, 16, 4.6);
 
-firstAndPike.hourlyCookies();
-seatacAirport.hourlyCookies();
-seattleCenter.hourlyCookies();
-capitolHill.hourlyCookies();
-alki.hourlyCookies();
+// firstAndPike.hourlyCookies();
+// seatacAirport.hourlyCookies();
+// seattleCenter.hourlyCookies();
+// capitolHill.hourlyCookies();
+// alki.hourlyCookies();
+var addStore = document.getElementById('addStore');
 
+var addStoreEventHandler = function(event){
+  event.preventDefault();
+  console.log(event);
+  var target = event.target;
+
+  var name = target.name.value;
+  var minimum = parseInt(target.minimum.value);
+  console.log(minimum);
+  var maximum = parseInt(target.maximum.value);
+  var average = parseInt(target.average.value);
+
+  target.reset();
+
+  var newStore = new StoreConstructor(name, minimum, maximum, average);
+  newStore.renderPage(tableElement);
+};
+addStore.addEventListener('submit', addStoreEventHandler);
 //render populated table
 for(var i = 0; i < storeList.length; i++){
   storeList[i].renderPage(tableElement);
