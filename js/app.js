@@ -135,7 +135,7 @@ StoreConstructor.prototype.renderPage = addStore;
 // seattleCenter.hourlyCookies();
 // capitolHill.hourlyCookies();
 // alki.hourlyCookies();
-var addStore = document.getElementById('addStore');
+var addStoreNew = document.getElementById('addStore');
 
 var addStoreEventHandler = function(event){
   event.preventDefault();
@@ -151,13 +151,15 @@ var addStoreEventHandler = function(event){
   target.reset();
 
   var newStore = new StoreConstructor(name, minimum, maximum, average);
+  newStore.hourlyCookies();
   newStore.renderPage(tableElement);
+  renderFoot(footElement);
 };
-addStore.addEventListener('submit', addStoreEventHandler);
+addStoreNew.addEventListener('submit', addStoreEventHandler);
 //render populated table
-for(var i = 0; i < storeList.length; i++){
-  storeList[i].renderPage(tableElement);
-}
+// for(var i = 0; i < storeList.length; i++){
+//   storeList[i].renderPage(tableElement);
+// }
 
 //render footer
-renderFoot(footElement);
+// renderFoot(footElement);
