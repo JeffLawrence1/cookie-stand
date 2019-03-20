@@ -48,15 +48,20 @@ var renderTable = function(salesListElement){
   tableHead.appendChild(tableRow);
   // var tableHead2 = document.createElement('th');
   // tableRow.appendChild(tableHead2);
-  for(var i = 0; i < 15; i++){
+
+  for(var i = 0; i < 17; i++){
     var th = document.createElement('th');
     var time = '';
-    if( i < 6){
-      time = i + 6 + 'am: ';
-    }else if(i === 6){
+    if(i === 0){
+      time = '';
+    }else if(i === 16){
+      time = 'Daily Location Total';
+    }else if( i < 7){
+      time = i + 5 + 'am: ';
+    }else if(i === 7){
       time = 12 + 'pm: ';
     }else{
-      time = i - 6 + 'pm: ';
+      time = i - 7 + 'pm: ';
     }
     th.textContent = time;
     tableRow.appendChild(th);
@@ -76,9 +81,21 @@ console.log(tableElement);
 var addStore = function(tableElement){
   var tr = document.createElement('tr');
   tableElement.appendChild(tr);
-  var td = document.createElement('tr');
-  tr.textContent = this.name;
+  var td = document.createElement('td');
+  td.textContent = this.name;
   tr.appendChild(td);
+
+  for(var i = 0; i < this.cookieArr.length; i++){
+    // if(i < 0){
+    //   td.textContent = this.name;
+    //   tr.appendChild(td);
+    // }else{
+    td = document.createElement('td');
+    td.textContent = this.cookieArr[i];
+    tr.appendChild(td);
+  }
+
+  // }
 
 };
 // addStore(tableElement);
