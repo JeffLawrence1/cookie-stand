@@ -73,6 +73,7 @@ var footElement = document.getElementById('foot');
 
 var renderFoot = function(footElement){
   var tr = document.createElement('tr');
+  tr.setAttribute('id','foot1');
   footElement.appendChild(tr);
   var td = document.createElement('td');
   td.textContent = 'Hourly Totals';
@@ -135,6 +136,9 @@ StoreConstructor.prototype.renderPage = addStore;
 // seattleCenter.hourlyCookies();
 // capitolHill.hourlyCookies();
 // alki.hourlyCookies();
+
+// renderFoot(footElement);
+
 var addStoreNew = document.getElementById('addStore');
 
 var addStoreEventHandler = function(event){
@@ -153,6 +157,12 @@ var addStoreEventHandler = function(event){
   var newStore = new StoreConstructor(name, minimum, maximum, average);
   newStore.hourlyCookies();
   newStore.renderPage(tableElement);
+
+  var footsie = (document.getElementById('foot1'));
+  console.log(footsie);
+  if(footsie){
+    footsie.parentNode.removeChild(footsie);
+  }
   renderFoot(footElement);
 };
 addStoreNew.addEventListener('submit', addStoreEventHandler);
