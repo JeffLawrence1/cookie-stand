@@ -10,28 +10,46 @@
 </ul>
 </article> */
 
+/* <table>
+      <tr>
+        <th></th>
+        <th>6:00am</th>
+        <th>7:00am</th>
+      </tr>
+      <tr>
+        <td>First and Pike</td>
+        <td>cookies</td>
+        <td>5fdsfdf0</td>
+      </tr>
+      <tr>
+        <td>Seatac</td>
+        <td>Jsdfsackson</td>
+        <td>9sdf4</td>
+      </tr>
+      <tr>
+        <td>Seattle</td>
+        <td>Dsdfsoe</td>
+        <td>8sdf0</td>
+      </tr>
+    </table> */
+// 1: Get the parent element to add content
+var salesListElement = document.getElementById('middle');
+// var tableElement = document.getElementById('middle');
+console.log(salesListElement);
 
-var renderStore = function(salesListElement){
-  // console.log(salesListElement);
-  var article = document.createElement('article');
-  article.setAttribute('id', `${this.name.toLowerCase().replace(' ', '')}`);
-  // article.setAttribute('id', 'first');
-  salesListElement.appendChild(article);
-  // 2: create element
-  var h2 = document.createElement('h2');
-  // 3: give element content
-  h2.textContent = this.name;
-  // 4: append to document
-  article.appendChild(h2);
-  // creating daily output list
-  var ul = document.createElement('ul');
-  ul.setAttribute('class', 'unorder');
-  article.appendChild(ul);
-  // adding to list
-
-
+var renderTable = function(salesListElement){
+  var table = document.createElement('table');
+  console.log(salesListElement);
+  table.setAttribute('id', 'table');
+  salesListElement.appendChild(table);
+  var tableHead = document.createElement('thead');
+  table.appendChild(tableHead);
+  var tableRow = document.createElement('tr');
+  tableHead.appendChild(tableRow);
+  // var tableHead2 = document.createElement('th');
+  // tableRow.appendChild(tableHead2);
   for(var i = 0; i < 15; i++){
-    var li = document.createElement('li');
+    var th = document.createElement('th');
     var time = '';
     if( i < 6){
       time = i + 6 + 'am: ';
@@ -40,17 +58,72 @@ var renderStore = function(salesListElement){
     }else{
       time = i - 6 + 'pm: ';
     }
-    li.textContent = time + this.cookieArr[i] + ' cookies';
-    ul.appendChild(li);
+    th.textContent = time;
+    tableRow.appendChild(th);
   }
-  var sum = 0;
-  for(var i = 0; i < 15; i++){
-    sum += this.cookieArr[i];
-  }
-  li.textContent = 'Total: ' + sum;
-  ul.appendChild(li);
+  var tableBody = document.createElement('tbody');
+  tableBody.setAttribute('id','body');
+  table.appendChild(tableBody);
+  var tablefoot = document.createElement('tfoot');
+  tablefoot.setAttribute('id', 'foot');
+  table.appendChild(tablefoot);
+};
+renderTable(salesListElement);
+// var salesListElement = document.getElementById('middle');
+var tableElement = document.getElementById('body');
+console.log(tableElement);
+
+var addStore = function(tableElement){
+  var tr = document.createElement('tr');
+  tableElement.appendChild(tr);
+  var td = document.createElement('tr');
+  tr.textContent = this.name;
+  tr.appendChild(td);
 
 };
+// addStore(tableElement);
+// var renderStore = function(salesListElement){
+//   console.log(salesListElement);
+
+
+//   var article = document.createElement('article');
+//   article.setAttribute('id', `${this.name.toLowerCase().replace(' ', '')}`);
+//   // article.setAttribute('id', 'first');
+//   salesListElement.appendChild(article);
+//   // 2: create element
+//   var h2 = document.createElement('h2');
+//   // 3: give element content
+//   h2.textContent = this.name;
+//   // 4: append to document
+//   article.appendChild(h2);
+//   // creating daily output list
+//   var ul = document.createElement('ul');
+//   ul.setAttribute('class', 'unorder');
+//   article.appendChild(ul);
+//   // adding to list
+
+
+//   for(var i = 0; i < 15; i++){
+//     var li = document.createElement('li');
+//     var time = '';
+//     if( i < 6){
+//       time = i + 6 + 'am: ';
+//     }else if(i === 6){
+//       time = 12 + 'pm: ';
+//     }else{
+//       time = i - 6 + 'pm: ';
+//     }
+//     li.textContent = time + this.cookieArr[i] + ' cookies';
+//     ul.appendChild(li);
+//   }
+//   var sum = 0;
+//   for(var i = 0; i < 15; i++){
+//     sum += this.cookieArr[i];
+//   }
+//   li.textContent = 'Total: ' + sum;
+//   ul.appendChild(li);
+
+// };
 
 //constructor function --- make sure to use a capitol letter to start name
 var StoreConstructor = function(name, minimumCustomers, maximumCustomers, averageCookieSale){
@@ -84,11 +157,12 @@ var storeList = [];
 // console.log(storeList);
 //var cookieArr = StoreConstructor.hourlyCookies();
 // console.log(cookieArr);
-//Rendering the store
-StoreConstructor.prototype.renderPage = renderStore;
 
-// 1: Get the parent element to add content
-var salesListElement = document.getElementById('middle');
+
+//Rendering the store uncomment below to make work again
+// StoreConstructor.prototype.renderPage = renderStore;
+StoreConstructor.prototype.renderPage = addStore;
+
 
 //creating store objects
 var firstAndPike = new StoreConstructor('First and Pike', 23, 65, 6.3);
@@ -106,7 +180,10 @@ alki.hourlyCookies();
 // console.log(firstAndPike);
 // console.log(this.storeList);
 
+// for(var i = 0; i < storeList.length; i++){
+//   storeList[i].renderPage(salesListElement);
+// }
 for(var i = 0; i < storeList.length; i++){
-  storeList[i].renderPage(salesListElement);
+  storeList[i].renderPage(tableElement);
 }
 
