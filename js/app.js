@@ -71,6 +71,7 @@ var addStore = function(tableElement){
 
 };
 
+
 // Get the parent element to add content
 var footElement = document.getElementById('foot');
 
@@ -80,9 +81,35 @@ var renderFoot = function(footElement){
   var td = document.createElement('td');
   td.textContent = 'Hourly Totals';
   tr.appendChild(td);
-};
 
-renderFoot(footElement);
+  // var sum = 0;
+
+  // for(var i = 1; i < 16; i++){
+  //   for(var j = 1; j < 5; j++){
+  //     sum += document.getElementById('body').rows[i].cells[j].textContent;
+  //     console.log(sum);
+  //   }
+  // }
+  // var sum = 0;
+  for(var i = 0; i < 15; i++){
+    var sum = 0;
+    for(var j = 0; j < storeList.length; j++){
+      sum += storeList[j].cookieArr[i];
+
+    }
+    td = document.createElement('td');
+    td.textContent = sum;
+    tr.appendChild(td);
+  }
+  // td = document.createElement('td');
+  // td.textContent = sum;
+  // tr.appendChild(td);
+};
+// var columns = document.getElementById('table').rows[0].cells.length;
+// var columns = document.getElementById('table').rows[0].cells[2];
+// console.log(columns);
+
+// renderFoot(footElement);
 // addStore(tableElement);
 // var renderStore = function(salesListElement){
 //   console.log(salesListElement);
@@ -188,4 +215,16 @@ alki.hourlyCookies();
 for(var i = 0; i < storeList.length; i++){
   storeList[i].renderPage(tableElement);
 }
+// var sum = 0;
+// var columns = document.getElementById('body').rows[1].cells[2];
+// var columns1 = document.getElementById('body').rows[2].cells[2];
+// console.log(parseInt(columns.textContent));
+// console.log(parseInt(columns1.textContent));
+// sum = columns + columns1;
+// console.log(sum);
+// var tbl = document.getElementsByTagName("table")[0];
+// var cls = tbl.getElementsByTagName("td");
+// console.log(cls);
 
+//render
+renderFoot(footElement);
