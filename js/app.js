@@ -37,6 +37,7 @@ var salesListElement = document.getElementById('middle');
 // var tableElement = document.getElementById('middle');
 console.log(salesListElement);
 
+//rendering table structure, head, body, foot
 var renderTable = function(salesListElement){
   var table = document.createElement('table');
   console.log(salesListElement);
@@ -75,6 +76,8 @@ var renderTable = function(salesListElement){
 };
 renderTable(salesListElement);
 // var salesListElement = document.getElementById('middle');
+
+//rendering actual table with info
 var tableElement = document.getElementById('body');
 console.log(tableElement);
 
@@ -86,16 +89,18 @@ var addStore = function(tableElement){
   tr.appendChild(td);
 
   for(var i = 0; i < this.cookieArr.length; i++){
-    // if(i < 0){
-    //   td.textContent = this.name;
-    //   tr.appendChild(td);
-    // }else{
+
     td = document.createElement('td');
     td.textContent = this.cookieArr[i];
     tr.appendChild(td);
   }
-
-  // }
+  var sum = 0;
+  for(var i = 0; i < 15; i++){
+    sum += this.cookieArr[i];
+  }
+  td = document.createElement('td');
+  td.textContent = sum;
+  tr.appendChild(td);
 
 };
 // addStore(tableElement);
