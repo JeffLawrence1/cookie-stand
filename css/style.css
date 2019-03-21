@@ -48,7 +48,7 @@ table, th, td{
 }
 input{
   border: 2px solid green;
-  background-color: aquamarine;
+  background-color: lightskyblue;
 }
 fieldset { 
   display: block;
