@@ -1,12 +1,20 @@
 'use strict';
 
+//GLOBAL VARIABLES
+var COOKIE_TABLE_ID = 'table';
+var COOKIE_TABLE_BODY_ID ='cookieSalesTableBody';
+var COOKIE_TABLE_FOOTER_ID = 'cookieSalesTableFooter';
+var COOKIE_TABLE_
+
+var ADD_STORE_FORM_ID = 'addStoreFormElement';
+var SECTION_TABLE_ID = '';
 // Get the parent element to add content
 var salesListElement = document.getElementById('middle');
 
 //rendering table structure, head, body, foot
 var renderTable = function(salesListElement){
   var table = document.createElement('table');
-  table.setAttribute('id', 'table');
+  table.setAttribute('id', COOKIE_TABLE_ID);
   salesListElement.appendChild(table);
   var tableHead = document.createElement('thead');
   table.appendChild(tableHead);
