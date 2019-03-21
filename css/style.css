@@ -72,6 +72,10 @@ fieldset {
   background-color: lightgreen;
   padding: 5px;
 }
+#salesBody{
+  background-color: lightgreen;
+  padding: 5px;
+}
 
 #storeLocations{
   display: grid;
@@ -96,12 +100,18 @@ fieldset {
 }
 .salmon{
   max-width: 49%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .chinook{
   max-width: 49%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .frosted-cookie{
   max-width: 24%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .shirt{
   max-width: 30%;
