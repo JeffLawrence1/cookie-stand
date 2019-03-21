@@ -77,17 +77,23 @@ var renderFoot = function(footElement){
   var td = document.createElement('td');
   td.textContent = 'Hourly Totals';
   tr.appendChild(td);
-
+  
+  var total = 0;
   for(var i = 0; i < 15; i++){
     var sum = 0;
+    
     for(var j = 0; j < storeList.length; j++){
       sum += storeList[j].cookieArr[i];
 
     }
+    total += sum;
     td = document.createElement('td');
     td.textContent = sum;
     tr.appendChild(td);
   }
+  td = document.createElement('td');
+  td.textContent = total;
+  tr.appendChild(td);
 };
 
 //constructor function --- make sure to use a capitol letter to start name
