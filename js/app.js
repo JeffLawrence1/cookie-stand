@@ -7,6 +7,10 @@ var salesListElement = document.getElementById('middle');
 var renderTable = function(salesListElement){
   var table = document.createElement('table');
   table.setAttribute('id', 'table');
+
+  // if(!salesListElement)
+
+
   salesListElement.appendChild(table);
   var tableHead = document.createElement('thead');
   table.appendChild(tableHead);
@@ -39,8 +43,9 @@ var renderTable = function(salesListElement){
 };
 
 // initializing the table
-renderTable(salesListElement);
-
+if(salesListElement){
+  renderTable(salesListElement);
+}
 //grabbing the table body location
 var tableElement = document.getElementById('body');
 
@@ -59,7 +64,7 @@ var addStore = function(tableElement){
     tr.appendChild(td);
   }
   var sum = 0;
-  for(var i = 0; i < 15; i++){
+  for(i = 0; i < 15; i++){
     sum += this.cookieArr[i];
   }
   td = document.createElement('td');
@@ -158,5 +163,6 @@ var addStoreEventHandler = function(event){
   //render footer
   renderFoot(footElement);
 };
-addStoreNew.addEventListener('submit', addStoreEventHandler);
-
+if(salesListElement){
+  addStoreNew.addEventListener('submit', addStoreEventHandler);
+}
