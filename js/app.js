@@ -1,12 +1,16 @@
 'use strict';
 
+var COOKIE_TABLE_ID = 'table';
+var COOKIE_TABLE_BODY_ID = 'body';
+var COOKIE_TABLE_FOOTER_ID = 'foot';
+
 // Get the parent element to add content
 var salesListElement = document.getElementById('middle');
 
 //rendering table structure, head, body, foot
 var renderTable = function(salesListElement){
   var table = document.createElement('table');
-  table.setAttribute('id', 'table');
+  table.setAttribute('id', COOKIE_TABLE_ID);
 
   // if(!salesListElement)
 
@@ -35,10 +39,10 @@ var renderTable = function(salesListElement){
     tableRow.appendChild(th);
   }
   var tableBody = document.createElement('tbody');
-  tableBody.setAttribute('id','body');
+  tableBody.setAttribute('id', COOKIE_TABLE_BODY_ID);
   table.appendChild(tableBody);
   var tablefoot = document.createElement('tfoot');
-  tablefoot.setAttribute('id', 'foot');
+  tablefoot.setAttribute('id', COOKIE_TABLE_FOOTER_ID);
   table.appendChild(tablefoot);
 };
 
@@ -47,7 +51,7 @@ if(salesListElement){
   renderTable(salesListElement);
 }
 //grabbing the table body location
-var tableElement = document.getElementById('body');
+var tableElement = document.getElementById(COOKIE_TABLE_BODY_ID);
 
 //creating and populating the table, but doenst actually render it see bottom of code for that
 var addStore = function(tableElement){
@@ -73,7 +77,7 @@ var addStore = function(tableElement){
 };
 
 // Get the parent element to add content
-var footElement = document.getElementById('foot');
+var footElement = document.getElementById(COOKIE_TABLE_FOOTER_ID);
 
 var renderFoot = function(footElement){
   var tr = document.createElement('tr');
