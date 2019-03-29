@@ -1,14 +1,5 @@
 'use strict';
 
-/* <article id="first">
-<h2>First and Pike</h2>
-<ul>
-  <li>cookies per hour</li>
-  <li>cookies per hour</li>
-  <li>cookies per hour</li>
-
-</ul>
-</article> */
 
 var firstAndPike = {
   name: 'First and Pike',
@@ -81,7 +72,7 @@ for(var i = 0; i < 15; i ++){
   ul.appendChild(li);
 }
 var sum = 0;
-for(var i = 0; i < 15; i++){ 
+for(i = 0; i < 15; i++){ 
   sum += cookieArr[i];
 }
 li.textContent = 'Total: ' + sum;
@@ -115,23 +106,23 @@ var seatacAirport = {
 };
 
 seatacAirport.hourlyCookies();
-var cookieArr = seatacAirport.dailyCookies();
+cookieArr = seatacAirport.dailyCookies();
 
 console.log(cookieArr);
 
 // 1: Get the parent element to add content
 
-var salesListElement = document.getElementById('middle');
+salesListElement = document.getElementById('middle');
 // console.log(salesListElement);
 
-var article = document.createElement('article');
+article = document.createElement('article');
 // article.setAttribute('id', `${seatacAirport.name.toLowerCase()}`);
 article.setAttribute('id', 'seatac');
 salesListElement.appendChild(article);
 
 // 2: create element
 
-var h2 = document.createElement('h2');
+h2 = document.createElement('h2');
 
 // 3: give element content
 h2.textContent = seatacAirport.name;
@@ -140,15 +131,15 @@ h2.textContent = seatacAirport.name;
 article.appendChild(h2);
 
 // creating daily output list
-var ul = document.createElement('ul');
+ul = document.createElement('ul');
 ul.setAttribute('class', 'unorder');
 article.appendChild(ul);
 
 
 // adding to list
-for(var i = 0; i < 15; i ++){
-  var li = document.createElement('li');
-  var time = '';
+for(i = 0; i < 15; i ++){
+  li = document.createElement('li');
+  time = '';
   if( i < 6){
     time = i + 6 + 'am: ';
   }else if(i === 6){
@@ -160,7 +151,7 @@ for(var i = 0; i < 15; i ++){
   ul.appendChild(li);
 }
 sum = 0;
-for(var i = 0; i < 15; i++){ 
+for(i = 0; i < 15; i++){ 
   sum += cookieArr[i];
 }
 li.textContent = 'Total: ' + sum;
@@ -194,23 +185,23 @@ var seattleCenter = {
 };
 
 seattleCenter.hourlyCookies();
-var cookieArr = seattleCenter.dailyCookies();
+cookieArr = seattleCenter.dailyCookies();
 
 console.log(cookieArr);
 
 // 1: Get the parent element to add content
 
-var salesListElement = document.getElementById('middle');
+salesListElement = document.getElementById('middle');
 // console.log(salesListElement);
 
-var article = document.createElement('article');
+article = document.createElement('article');
 // article.setAttribute('id', `${seattleCenter.name.toLowerCase()}`);
 article.setAttribute('id', 'seattle');
 salesListElement.appendChild(article);
 
 // 2: create element
 
-var h2 = document.createElement('h2');
+h2 = document.createElement('h2');
 
 // 3: give element content
 h2.textContent = seattleCenter.name;
@@ -219,14 +210,14 @@ h2.textContent = seattleCenter.name;
 article.appendChild(h2);
 
 // creating daily output list
-var ul = document.createElement('ul');
+ul = document.createElement('ul');
 ul.setAttribute('class', 'unorder');
 article.appendChild(ul);
 
 // adding to list
-for(var i = 0; i < 15; i ++){
-  var li = document.createElement('li');
-  var time = '';
+for(i = 0; i < 15; i ++){
+  li = document.createElement('li');
+  time = '';
   if( i < 6){
     time = i + 6 + 'am: ';
   }else if(i === 6){
@@ -238,7 +229,7 @@ for(var i = 0; i < 15; i ++){
   ul.appendChild(li);
 }
 sum = 0;
-for(var i = 0; i < 15; i++){ 
+for(i = 0; i < 15; i++){ 
   sum += cookieArr[i];
 }
 li.textContent = 'Total: ' + sum;
@@ -272,23 +263,23 @@ var capitolHill = {
 };
 
 capitolHill.hourlyCookies();
-var cookieArr = capitolHill.dailyCookies();
+cookieArr = capitolHill.dailyCookies();
 
 console.log(cookieArr);
 
 // 1: Get the parent element to add content
 
-var salesListElement = document.getElementById('middle');
+salesListElement = document.getElementById('middle');
 // console.log(salesListElement);
 
-var article = document.createElement('article');
+article = document.createElement('article');
 // article.setAttribute('id', `${capitolHill.name.toLowerCase()}`);
 article.setAttribute('id', 'capitol');
 salesListElement.appendChild(article);
 
 // 2: create element
 
-var h2 = document.createElement('h2');
+h2 = document.createElement('h2');
 
 // 3: give element content
 h2.textContent = capitolHill.name;
@@ -297,14 +288,14 @@ h2.textContent = capitolHill.name;
 article.appendChild(h2);
 
 // creating daily output list
-var ul = document.createElement('ul');
+ul = document.createElement('ul');
 ul.setAttribute('class', 'unorder');
 article.appendChild(ul);
 
 // adding to list
-for(var i = 0; i < 15; i ++){
-  var li = document.createElement('li');
-  var time = '';
+for(i = 0; i < 15; i ++){
+  li = document.createElement('li');
+  time = '';
   if( i < 6){
     time = i + 6 + 'am: ';
   }else if(i === 6){
@@ -316,7 +307,7 @@ for(var i = 0; i < 15; i ++){
   ul.appendChild(li);
 }
 sum = 0;
-for(var i = 0; i < 15; i++){ 
+for(i = 0; i < 15; i++){ 
   sum += cookieArr[i];
 }
 li.textContent = 'Total: ' + sum;
@@ -350,23 +341,23 @@ var alki = {
 };
 
 alki.hourlyCookies();
-var cookieArr = alki.dailyCookies();
+cookieArr = alki.dailyCookies();
 
 console.log(cookieArr);
 
 // 1: Get the parent element to add content
 
-var salesListElement = document.getElementById('middle');
+salesListElement = document.getElementById('middle');
 // console.log(salesListElement);
 
-var article = document.createElement('article');
+article = document.createElement('article');
 // article.setAttribute('id', `${alki.name.toLowerCase()}`);
 article.setAttribute('id', 'alki');
 salesListElement.appendChild(article);
 
 // 2: create element
 
-var h2 = document.createElement('h2');
+h2 = document.createElement('h2');
 
 // 3: give element content
 h2.textContent = alki.name;
@@ -375,14 +366,14 @@ h2.textContent = alki.name;
 article.appendChild(h2);
 
 // creating daily output list
-var ul = document.createElement('ul');
+ul = document.createElement('ul');
 ul.setAttribute('class', 'unorder');
 article.appendChild(ul);
 
 // adding to list
-for(var i = 0; i < 15; i ++){
-  var li = document.createElement('li');
-  var time = '';
+for(i = 0; i < 15; i ++){
+  li = document.createElement('li');
+  time = '';
   if( i < 6){
     time = i + 6 + 'am: ';
   }else if(i === 6){
@@ -394,7 +385,7 @@ for(var i = 0; i < 15; i ++){
   ul.appendChild(li);
 }
 sum = 0;
-for(var i = 0; i < 15; i++){ 
+for(i = 0; i < 15; i++){ 
   sum += cookieArr[i];
 }
 li.textContent = 'Total: ' + sum;
