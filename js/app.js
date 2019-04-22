@@ -157,7 +157,7 @@ var addStoreEventHandler = function(event){
   if(footsie){
     footsie.parentNode.removeChild(footsie);
   }
-  //render footer
+  //render footer 
   renderFoot(footElement);
 };
 addStoreNew.addEventListener('submit', addStoreEventHandler);
